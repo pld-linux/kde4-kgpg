@@ -1,16 +1,16 @@
 #
 %define		_state		stable
 %define		orgname		kgpg
-%define		qtver		4.8.0
+%define		qtver		4.8.1
 
 Summary:	K Desktop Environment - interface for GnuPG
 Name:		kde4-kgpg
-Version:	4.8.2
+Version:	4.8.3
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	8da268005c9251234493291c232ac6f7
+# Source0-md5:	ac97a81cfb679b5f496b380655d74805
 URL:		http://www.kde.org/
 BuildRequires:	kde4-kdebase-devel >= %{version}
 Requires:	kde4-kdebase-workspace >= %{version}
