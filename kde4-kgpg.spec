@@ -2,6 +2,7 @@
 %define		_state		stable
 %define		orgname		kgpg
 %define		qtver		4.8.3
+%define		kdeworkspacever	4.11.0
 
 Summary:	K Desktop Environment - interface for GnuPG
 Name:		kde4-kgpg
@@ -13,7 +14,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version
 # Source0-md5:	073b9d85688de80bd2d8c102c083ba5d
 URL:		http://www.kde.org/
 BuildRequires:	kde4-kdebase-devel >= %{version}
-Requires:	kde4-kdebase-workspace >= %{version}
+Requires:	kde4-kdebase-workspace >= %{kdeworkspacever}
 Obsoletes:	kde4-kdeutils-kgpg
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
