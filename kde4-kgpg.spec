@@ -6,12 +6,12 @@
 
 Summary:	K Desktop Environment - interface for GnuPG
 Name:		kde4-kgpg
-Version:	4.12.1
+Version:	4.12.2
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	47cabe2fc60c46c051c8bc668e9c923d
+# Source0-md5:	5d64c6805eb995359fdd5fad9b1a5d85
 URL:		http://www.kde.org/
 BuildRequires:	kde4-kdebase-devel >= %{version}
 Requires:	kde4-kdebase-workspace >= %{kdeworkspacever}
