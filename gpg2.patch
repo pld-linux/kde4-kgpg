@@ -1,0 +1,17 @@
+--- kgpg-4.14.3/kgpg.cpp.org	2014-10-19 22:56:06.000000000 +0200
++++ kgpg-4.14.3/kgpg.cpp	2018-05-06 12:05:07.733097102 +0200
+@@ -86,7 +86,13 @@ int KGpgApp::newInstance()
+ 		connect(w, SIGNAL(createNewKey()), s_keyManager, SLOT(slotGenerateKey()));
+ 
+ 		if (!gpgPath.isEmpty()) {
+-			if ((KgpgInterface::getGpgBoolSetting(QLatin1String( "use-agent" ), gpgPath)) && (qgetenv("GPG_AGENT_INFO").isEmpty()))
++			const int gpgver = GPGProc::gpgVersion(GPGProc::gpgVersionString(KGpgSettings::gpgBinaryPath()));
++
++			// Warn if sign of a properly running gpg-agent cannot be determined
++			// The environment variable has been removed in GnuPG 2.1, the agent is started internally by
++			// any program part of GnuPG that needs it, so simply assume everything is fine.
++			if ((gpgver < 0x20100) && KgpgInterface::getGpgBoolSetting(QLatin1String("use-agent"), gpgPath) &&
++					qgetenv("GPG_AGENT_INFO").isEmpty())
+ 				KMessageBox::sorry(0, i18n("<qt>The use of <b>GnuPG Agent</b> is enabled in GnuPG's configuration file (%1).<br />"
+ 					"However, the agent does not seem to be running. This could result in problems with signing/decryption.<br />"
+ 					"Please disable GnuPG Agent from KGpg settings, or fix the agent.</qt>", gpgPath));

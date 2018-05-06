@@ -7,13 +7,15 @@
 Summary:	K Desktop Environment - interface for GnuPG
 Name:		kde4-kgpg
 Version:	4.14.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.kde.org/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
 # Source0-md5:	fa4ace4289fb73221b1eed744b06574a
+Patch0:		gpg2.patch
 URL:		http://www.kde.org/
 BuildRequires:	kde4-kdebase-devel >= %{version}
+BuildRequires:	kde4-kdepimlibs-devel >= %{version}
 Requires:	kde4-kdebase-workspace >= %{kdeworkspacever}
 Obsoletes:	kde4-kdeutils-kgpg
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -50,6 +52,7 @@ gpg przeznaczoną dla KDE. Ma następujące możliwości:
 
 %prep
 %setup -q -n %{orgname}-%{version}
+%patch0 -p1
 
 %build
 install -d build
